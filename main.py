@@ -66,8 +66,8 @@ clock = pygame.time.Clock()
 running = True
 while running:
     # TODO 6: Changing the name!
-    # D'oh! This is not yout name isn't follow the detailed instructions on the PDF to complete this task.
-    name = "Homer Simpson"
+    # D'oh! This is not your name isn't follow the detailed instructions on the PDF to complete this task.
+    name = "Joaniel"
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
@@ -99,24 +99,14 @@ while running:
         if pipe_x < -70:
             pipe_x = 400
             pipe_height = random.randint(100, 400)
+
             # TODO 4: Fixing the scoring
-            # When you pass through the pipes the score should be updated to the current score + 1. Implement the
-            # logic to accomplish this scoring system.
+        passed_pipe = False
 
-
-        for pipe in pipes[:]:
-            pipe.x -= pipe_speed
-
-
-            if bird_x > pipe.x + pipe_width and not pipe.passed:
-                score += 1
-                pipe.passed = True
-
-
-            if pipe.x + pipe_width < 0:
-                pipes.remove(pipe)
-                new_height = random.randint(100, 400)
-                pipes.append(Pipe(800, new_height))
+        # Inside your game loop, after moving the pipe:
+        if pipe_x + pipe_width < bird_x and not passed_pipe:
+            score += 1
+            passed_pipe = True
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
