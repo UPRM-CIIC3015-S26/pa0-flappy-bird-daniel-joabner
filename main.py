@@ -36,7 +36,7 @@ score_y = 10
 bird_x = 50
 bird_y = 300
 bird_velocity = 0
-# TODO 1: Tweaking the physics
+# TODO 1: Done
 # Looks like the player is falling too quickly not giving a change to flap it's wing, maybe tweak around with the value of this variable
 gravity = 0.5
 jump = -8
@@ -47,12 +47,12 @@ pipe_width = 70
 pipe_gap = 150
 pipe_heigh = random.randint(100, 400)
 
-# TODO 2.1: A Little gap Problem
+# TODO 2.1: Done
 # You probably noticed when running the code that it's impossible the player to go through the gaps
 # play around with the pipe_gap variable so that its big enough for the player to pass through
 pipe_gap = 150
 pipe_height = random.randint(100, 400)
-# TODO 2.2: The too fast problem
+# TODO 2.2: Done
 # The pipes are moving way too fast! Play around with the pipe_speed variable until you find a good
 # speed for the player to play in!
 pipe_speed = 3
@@ -65,7 +65,7 @@ clock = pygame.time.Clock()
 
 running = True
 while running:
-    # TODO 6: Changing the name!
+    # TODO 6: Done
     # D'oh! This is not your name isn't follow the detailed instructions on the PDF to complete this task.
     name = "Joaniel"
     for event in pygame.event.get():
@@ -79,7 +79,7 @@ while running:
                 elif game_over == False:
                     bird_velocity = jump
                 else:
-                    # TODO 3: Spawning back the Player
+                    # TODO 3: Done
                     # After the bird crashes with a pipe the when spawning back the player it doesn't appear.
                     # It is your job to find why this is happening! (Hint: What variable stores the y coordinates
                     # of the bird)
@@ -100,13 +100,8 @@ while running:
             pipe_x = 400
             pipe_height = random.randint(100, 400)
 
-            # TODO 4: Fixing the scoring
-        passed_pipe = False
-
-        # Inside your game loop, after moving the pipe:
-        if pipe_x + pipe_width < bird_x and not passed_pipe:
+            # TODO 4: Done
             score += 1
-            passed_pipe = True
 
         if bird_y > 600 or bird_y < 0:
             game_over = True
@@ -119,7 +114,7 @@ while running:
             game_over = True
 
     screen.fill(pygame.Color('grey12'))
-    # TODO 5: A Bird's Color
+    # TODO 5: Done
     # The color of the player is currently white, let's change that a bit! You are free to change the bird's
     # to whatever you wish. You will need to head back to where the PLAYER variable was created and change the values.
     pygame.draw.rect(screen, PLAYER, (bird_x, bird_y, 30, 30)) # Drawing the bird (You don't need to touch this line!)
@@ -132,7 +127,7 @@ while running:
     WHITE = (255, 255, 255)
     GREEN = (0, 255, 0)
 
-    # TODO 5: A Bird's Color
+    # TODO 5: Done
     PLAYER = (255, 255, 0)  # Yellow bird
 
     if game_started == False: # Start UI -->
